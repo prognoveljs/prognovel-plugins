@@ -770,7 +770,7 @@ function generateAffiliateLink(address, id) {
   const thisPage = new URL(window.location.href);
   thisPage.search = "";
   thisPage.searchParams.set("affiliate", encodeURI(address));
-  thisPage.searchParams.set("affiliateId", encodeURI(id));
+  thisPage.searchParams.set("affiliate-id", encodeURI(id));
   return thisPage.href;
 }
 let bodyStyle = {

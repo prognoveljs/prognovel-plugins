@@ -72,16 +72,20 @@
 
   const m = new WebMonetization()
     .registerPaymentPointers([
-      "$wallet.example.com/test-1#10",
-      "$wallet.example.com/test-2#8",
-      "$wallet.example.com/test-3#20",
-      "$wallet.example.com/test-4#5",
+      // Contract for the Web payment pointer
+      "$ilp.uphold.com/rKe8mMbUGkBm#10",
+      // Creative Commons payment pointer
+      "$ilp.uphold.com/edR8erBDbRyq#8",
+      // Internet Archive payment pointer
+      "$ilp.uphold.com/D7BwPKMQzBiD#20",
+      // freeCodeCamp
+      "$ilp.uphold.com/LJmbPn7WD4JB#5",
     ])
     .registerDynamicRevshare("affiliate", "10%")
     .start();
 
   m.queue.then(d => {
-    console.log(webfunding.getCurrentPaymentPointerPool());
+    console.log(webfunding.getCurrentPointerPool());
   })
 </script>
   </body>
