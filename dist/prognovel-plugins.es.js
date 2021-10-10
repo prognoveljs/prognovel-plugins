@@ -850,8 +850,8 @@ function scale(node, { delay = 0, duration = 400, easing = cubicOut, start = 0, 
 }
 function get_each_context(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[22] = list[i];
-  child_ctx[24] = i;
+  child_ctx[23] = list[i];
+  child_ctx[25] = i;
   return child_ctx;
 }
 function create_if_block(ctx) {
@@ -882,7 +882,7 @@ function create_if_block(ctx) {
   let mounted;
   let dispose;
   function select_block_type(ctx2, dirty) {
-    if (ctx2[6])
+    if (ctx2[7])
       return create_if_block_5;
     return create_else_block;
   }
@@ -896,13 +896,13 @@ function create_if_block(ctx) {
   const if_block_creators = [create_if_block_1, create_if_block_2, create_if_block_3, create_if_block_4];
   const if_blocks = [];
   function select_block_type_1(ctx2, dirty) {
-    if (ctx2[2] === 0)
+    if (ctx2[3] === 0)
       return 0;
-    if (ctx2[2] === 1)
+    if (ctx2[3] === 1)
       return 1;
-    if (ctx2[2] === 2)
+    if (ctx2[3] === 2)
       return 2;
-    if (ctx2[2] === 3)
+    if (ctx2[3] === 3)
       return 3;
     return -1;
   }
@@ -936,10 +936,10 @@ function create_if_block(ctx) {
         if_block1.c();
       attr(div0, "class", "overlay");
       set_style(div0, "opacity", opacity);
-      toggle_class(div1, "copied", ctx[6]);
+      toggle_class(div1, "copied", ctx[7]);
       attr(input_1, "onfocus", "this.select();");
       attr(input_1, "type", "text");
-      input_1.value = ctx[5];
+      input_1.value = ctx[6];
       input_1.readOnly = true;
       attr(div2, "class", "affiliate-link");
       attr(div4, "class", "head");
@@ -958,7 +958,7 @@ function create_if_block(ctx) {
       append(article, t1);
       append(article, div2);
       append(div2, input_1);
-      ctx[18](input_1);
+      ctx[19](input_1);
       append(div2, t2);
       append(div2, span);
       append(article, t4);
@@ -977,8 +977,8 @@ function create_if_block(ctx) {
       current = true;
       if (!mounted) {
         dispose = [
-          listen(div0, "click", ctx[17]),
-          listen(span, "click", ctx[9])
+          listen(div0, "click", ctx[18]),
+          listen(span, "click", ctx[10])
         ];
         mounted = true;
       }
@@ -993,13 +993,13 @@ function create_if_block(ctx) {
           if_block0.m(div1, null);
         }
       }
-      if (dirty & 64) {
-        toggle_class(div1, "copied", ctx[6]);
+      if (dirty & 128) {
+        toggle_class(div1, "copied", ctx[7]);
       }
-      if (!current || dirty & 32 && input_1.value !== ctx[5]) {
-        input_1.value = ctx[5];
+      if (!current || dirty & 64 && input_1.value !== ctx[6]) {
+        input_1.value = ctx[6];
       }
-      if (dirty & 1028) {
+      if (dirty & 2056) {
         each_value = Array(4).fill("");
         let i;
         for (i = 0; i < each_value.length; i += 1) {
@@ -1094,7 +1094,7 @@ function create_if_block(ctx) {
       if (detaching)
         detach(article);
       if_block0.d();
-      ctx[18](null);
+      ctx[19](null);
       destroy_each(each_blocks, detaching);
       if (~current_block_type_index) {
         if_blocks[current_block_type_index].d();
@@ -1141,12 +1141,12 @@ function create_each_block(ctx) {
   let mounted;
   let dispose;
   function click_handler_1() {
-    return ctx[19](ctx[24]);
+    return ctx[20](ctx[25]);
   }
   return {
     c() {
       span = element("span");
-      toggle_class(span, "selected", ctx[2] === ctx[24]);
+      toggle_class(span, "selected", ctx[3] === ctx[25]);
     },
     m(target, anchor) {
       insert(target, span, anchor);
@@ -1157,8 +1157,8 @@ function create_each_block(ctx) {
     },
     p(new_ctx, dirty) {
       ctx = new_ctx;
-      if (dirty & 4) {
-        toggle_class(span, "selected", ctx[2] === ctx[24]);
+      if (dirty & 8) {
+        toggle_class(span, "selected", ctx[3] === ctx[25]);
       }
     },
     d(detaching) {
@@ -1181,20 +1181,20 @@ function create_if_block_4(ctx) {
       div = element("div");
       div.textContent = "Now you're ready! What are you waiting for? Go promote the novel out there and good\n            luck! \u{1F44D}\u{1F44D}\u{1F44D}";
       attr(div, "class", "tips-item");
-      toggle_class(div, "selected", ctx[2] === 3);
+      toggle_class(div, "selected", ctx[3] === 3);
     },
     m(target, anchor) {
       insert(target, div, anchor);
       current = true;
       if (!mounted) {
-        dispose = action_destroyer(ctx[12].call(null, div));
+        dispose = action_destroyer(ctx[13].call(null, div));
         mounted = true;
       }
     },
     p(new_ctx, dirty) {
       ctx = new_ctx;
-      if (dirty & 4) {
-        toggle_class(div, "selected", ctx[2] === 3);
+      if (dirty & 8) {
+        toggle_class(div, "selected", ctx[3] === 3);
       }
     },
     i(local) {
@@ -1203,7 +1203,7 @@ function create_if_block_4(ctx) {
       add_render_callback(() => {
         if (div_outro)
           div_outro.end(1);
-        div_intro = create_in_transition(div, fly, ctx[11].In());
+        div_intro = create_in_transition(div, fly, ctx[12].In());
         div_intro.start();
       });
       current = true;
@@ -1211,7 +1211,7 @@ function create_if_block_4(ctx) {
     o(local) {
       if (div_intro)
         div_intro.invalidate();
-      div_outro = create_out_transition(div, fly, ctx[11].Out());
+      div_outro = create_out_transition(div, fly, ctx[12].Out());
       current = false;
     },
     d(detaching) {
@@ -1243,20 +1243,20 @@ function create_if_block_3(ctx) {
             almost every corner of the web out there. And like every industry and community, those
             who spearhead the revolution will definitely be rewarded!`;
       attr(div, "class", "tips-item");
-      toggle_class(div, "selected", ctx[2] === 2);
+      toggle_class(div, "selected", ctx[3] === 2);
     },
     m(target, anchor) {
       insert(target, div, anchor);
       current = true;
       if (!mounted) {
-        dispose = action_destroyer(ctx[12].call(null, div));
+        dispose = action_destroyer(ctx[13].call(null, div));
         mounted = true;
       }
     },
     p(new_ctx, dirty) {
       ctx = new_ctx;
-      if (dirty & 4) {
-        toggle_class(div, "selected", ctx[2] === 2);
+      if (dirty & 8) {
+        toggle_class(div, "selected", ctx[3] === 2);
       }
     },
     i(local) {
@@ -1265,7 +1265,7 @@ function create_if_block_3(ctx) {
       add_render_callback(() => {
         if (div_outro)
           div_outro.end(1);
-        div_intro = create_in_transition(div, fly, ctx[11].In());
+        div_intro = create_in_transition(div, fly, ctx[12].In());
         div_intro.start();
       });
       current = true;
@@ -1273,7 +1273,7 @@ function create_if_block_3(ctx) {
     o(local) {
       if (div_intro)
         div_intro.invalidate();
-      div_outro = create_out_transition(div, fly, ctx[11].Out());
+      div_outro = create_out_transition(div, fly, ctx[12].Out());
       current = false;
     },
     d(detaching) {
@@ -1298,20 +1298,20 @@ function create_if_block_2(ctx) {
       div = element("div");
       div.textContent = "To get the most out of this affiliate link is to write book reviews you'd think people\n            will happy reading. Dig hidden gems and start recommend them to fellow readers in the\n            community!";
       attr(div, "class", "tips-item");
-      toggle_class(div, "selected", ctx[2] === 1);
+      toggle_class(div, "selected", ctx[3] === 1);
     },
     m(target, anchor) {
       insert(target, div, anchor);
       current = true;
       if (!mounted) {
-        dispose = action_destroyer(ctx[12].call(null, div));
+        dispose = action_destroyer(ctx[13].call(null, div));
         mounted = true;
       }
     },
     p(new_ctx, dirty) {
       ctx = new_ctx;
-      if (dirty & 4) {
-        toggle_class(div, "selected", ctx[2] === 1);
+      if (dirty & 8) {
+        toggle_class(div, "selected", ctx[3] === 1);
       }
     },
     i(local) {
@@ -1320,7 +1320,7 @@ function create_if_block_2(ctx) {
       add_render_callback(() => {
         if (div_outro)
           div_outro.end(1);
-        div_intro = create_in_transition(div, fly, ctx[11].In());
+        div_intro = create_in_transition(div, fly, ctx[12].In());
         div_intro.start();
       });
       current = true;
@@ -1328,7 +1328,7 @@ function create_if_block_2(ctx) {
     o(local) {
       if (div_intro)
         div_intro.invalidate();
-      div_outro = create_out_transition(div, fly, ctx[11].Out());
+      div_outro = create_out_transition(div, fly, ctx[12].Out());
       current = false;
     },
     d(detaching) {
@@ -1343,6 +1343,9 @@ function create_if_block_2(ctx) {
 }
 function create_if_block_1(ctx) {
   let div;
+  let t0;
+  let t1;
+  let t2;
   let div_intro;
   let div_outro;
   let current;
@@ -1351,26 +1354,29 @@ function create_if_block_1(ctx) {
   return {
     c() {
       div = element("div");
-      div.textContent = `You will receive ${rate} of revenue of Web Monetization subscribers clicking your affiliate
-            link. Please note that you are not being paid by how much clicks you get, but instead the
-            time spent by subscribers reading the novel you referred. It is recommended to promote good
-            novels that you're confident people will follow through, and avoid annoying people with spam
-            to maintain trust with fellow readers.`;
+      t0 = text("You will receive ");
+      t1 = text(ctx[2]);
+      t2 = text("% of revenue of Web Monetization subscribers clicking your\n            affiliate link. Please note that you are not being paid by how much clicks you get, but\n            instead the time spent by subscribers reading the novel you referred. It is recommended\n            to promote good novels that you're confident people will follow through, and avoid\n            annoying people with spam to maintain trust with fellow readers.");
       attr(div, "class", "tips-item");
-      toggle_class(div, "selected", ctx[2] === 0);
+      toggle_class(div, "selected", ctx[3] === 0);
     },
     m(target, anchor) {
       insert(target, div, anchor);
+      append(div, t0);
+      append(div, t1);
+      append(div, t2);
       current = true;
       if (!mounted) {
-        dispose = action_destroyer(ctx[12].call(null, div));
+        dispose = action_destroyer(ctx[13].call(null, div));
         mounted = true;
       }
     },
     p(new_ctx, dirty) {
       ctx = new_ctx;
-      if (dirty & 4) {
-        toggle_class(div, "selected", ctx[2] === 0);
+      if (!current || dirty & 4)
+        set_data(t1, ctx[2]);
+      if (dirty & 8) {
+        toggle_class(div, "selected", ctx[3] === 0);
       }
     },
     i(local) {
@@ -1379,7 +1385,7 @@ function create_if_block_1(ctx) {
       add_render_callback(() => {
         if (div_outro)
           div_outro.end(1);
-        div_intro = create_in_transition(div, fly, ctx[11].In());
+        div_intro = create_in_transition(div, fly, ctx[12].In());
         div_intro.start();
       });
       current = true;
@@ -1387,7 +1393,7 @@ function create_if_block_1(ctx) {
     o(local) {
       if (div_intro)
         div_intro.invalidate();
-      div_outro = create_out_transition(div, fly, ctx[11].Out());
+      div_outro = create_out_transition(div, fly, ctx[12].Out());
       current = false;
     },
     d(detaching) {
@@ -1424,7 +1430,7 @@ function create_fragment(ctx) {
   let current;
   let mounted;
   let dispose;
-  let if_block = ctx[3] && create_if_block(ctx);
+  let if_block = ctx[4] && create_if_block(ctx);
   return {
     c() {
       article = element("article");
@@ -1483,7 +1489,7 @@ function create_fragment(ctx) {
       append(section, t7);
       append(section, div);
       append(div, input_1);
-      ctx[16](input_1);
+      ctx[17](input_1);
       append(div, t8);
       append(div, button);
       insert(target, t10, anchor);
@@ -1493,8 +1499,8 @@ function create_fragment(ctx) {
       current = true;
       if (!mounted) {
         dispose = [
-          listen(window, "keyup", ctx[13]),
-          listen(button, "click", ctx[8])
+          listen(window, "keyup", ctx[14]),
+          listen(button, "click", ctx[9])
         ];
         mounted = true;
       }
@@ -1505,10 +1511,10 @@ function create_fragment(ctx) {
       }
       if (!current || dirty & 1)
         set_data(t4, ctx2[0]);
-      if (ctx2[3]) {
+      if (ctx2[4]) {
         if (if_block) {
           if_block.p(ctx2, dirty);
-          if (dirty & 8) {
+          if (dirty & 16) {
             transition_in(if_block, 1);
           }
         } else {
@@ -1538,7 +1544,7 @@ function create_fragment(ctx) {
     d(detaching) {
       if (detaching)
         detach(article);
-      ctx[16](null);
+      ctx[17](null);
       if (detaching)
         detach(t10);
       if (if_block)
@@ -1551,7 +1557,6 @@ function create_fragment(ctx) {
   };
 }
 let input_label = "Generate your affiliate link";
-let rate = "10%";
 let padding = "24px 24px 64px";
 let width = 500;
 let top = "20%";
@@ -1562,11 +1567,12 @@ function instance($$self, $$props, $$invalidate) {
   let { label = "" } = $$props;
   let { id = "affiliate" } = $$props;
   let { img = "" } = $$props;
+  let { rate = "10" } = $$props;
   let input;
   let generatedLink = "";
   function createAffiliateLink() {
-    $$invalidate(5, generatedLink = generateAffiliateLink(input.value, id));
-    $$invalidate(3, showModal = true);
+    $$invalidate(6, generatedLink = generateAffiliateLink(input.value, id));
+    $$invalidate(4, showModal = true);
   }
   let copied = false;
   let linkElement;
@@ -1580,11 +1586,11 @@ function instance($$self, $$props, $$invalidate) {
       linkElement.select();
       document.execCommand("copy");
     }
-    $$invalidate(6, copied = true);
+    $$invalidate(7, copied = true);
   }
   function clickTips(index) {
     hasClickedYet = true;
-    $$invalidate(2, selectedTips = index);
+    $$invalidate(3, selectedTips = index);
   }
   const transition = {
     In() {
@@ -1611,19 +1617,19 @@ function instance($$self, $$props, $$invalidate) {
       close();
   }
   const close = () => {
-    $$invalidate(3, showModal = false);
+    $$invalidate(4, showModal = false);
   };
   function input_1_binding($$value) {
     binding_callbacks[$$value ? "unshift" : "push"](() => {
       input = $$value;
-      $$invalidate(4, input);
+      $$invalidate(5, input);
     });
   }
   const click_handler = () => close();
   function input_1_binding_1($$value) {
     binding_callbacks[$$value ? "unshift" : "push"](() => {
       linkElement = $$value;
-      $$invalidate(7, linkElement);
+      $$invalidate(8, linkElement);
     });
   }
   const click_handler_1 = (index) => clickTips(index);
@@ -1631,24 +1637,26 @@ function instance($$self, $$props, $$invalidate) {
     if ("label" in $$props2)
       $$invalidate(0, label = $$props2.label);
     if ("id" in $$props2)
-      $$invalidate(15, id = $$props2.id);
+      $$invalidate(16, id = $$props2.id);
     if ("img" in $$props2)
       $$invalidate(1, img = $$props2.img);
+    if ("rate" in $$props2)
+      $$invalidate(2, rate = $$props2.rate);
   };
   $$self.$$.update = () => {
-    if ($$self.$$.dirty & 4) {
+    if ($$self.$$.dirty & 8) {
       if (selectedTips) {
         tick().then(() => {
           previousSelectedTips = selectedTips;
         });
       }
     }
-    if ($$self.$$.dirty & 8) {
+    if ($$self.$$.dirty & 16) {
       if (showModal === true) {
         windowLock();
       }
     }
-    if ($$self.$$.dirty & 8) {
+    if ($$self.$$.dirty & 16) {
       if (showModal === false) {
         windowUnlock();
       }
@@ -1657,6 +1665,7 @@ function instance($$self, $$props, $$invalidate) {
   return [
     label,
     img,
+    rate,
     selectedTips,
     showModal,
     input,
@@ -1685,7 +1694,7 @@ class AffiliateLink extends SvelteElement {
       target: this.shadowRoot,
       props: attribute_to_object(this.attributes),
       customElement: true
-    }, instance, create_fragment, safe_not_equal, { label: 0, id: 15, img: 1 }, null);
+    }, instance, create_fragment, safe_not_equal, { label: 0, id: 16, img: 1, rate: 2 }, null);
     if (options) {
       if (options.target) {
         insert(options.target, this, options.anchor);
@@ -1697,7 +1706,7 @@ class AffiliateLink extends SvelteElement {
     }
   }
   static get observedAttributes() {
-    return ["label", "id", "img"];
+    return ["label", "id", "img", "rate"];
   }
   get label() {
     return this.$$.ctx[0];
@@ -1707,7 +1716,7 @@ class AffiliateLink extends SvelteElement {
     flush();
   }
   get id() {
-    return this.$$.ctx[15];
+    return this.$$.ctx[16];
   }
   set id(id) {
     this.$$set({ id });
@@ -1718,6 +1727,13 @@ class AffiliateLink extends SvelteElement {
   }
   set img(img) {
     this.$$set({ img });
+    flush();
+  }
+  get rate() {
+    return this.$$.ctx[2];
+  }
+  set rate(rate) {
+    this.$$set({ rate });
     flush();
   }
 }
