@@ -1,0 +1,35 @@
+$zIndex: 999999;
+.pg--modal {
+  --borderRadius: 4px;
+  width: var(--modalWidth, 500px);
+  position: fixed;
+  top: var(--modalTop, 20%);
+  min-height: 250px;
+  left: calc(50% - (var(--modalWidth) / 2));
+  background-color: var(--background-color, #fff);
+  z-index: $zIndex;
+  border-radius: var(--borderRadius);
+  overflow: hidden;
+  font-family: var(--font-family);
+
+  &.borderTop {
+    border-top: 2px solid var(--primary-color);
+    border-radius: 0 0 var(--borderRadius) var(--borderRadius);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  article {
+    --modalWidth: 95vw !important;
+  }
+}
+
+.overlay {
+  z-index: $zIndex - 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
