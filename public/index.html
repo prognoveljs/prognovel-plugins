@@ -66,5 +66,27 @@
       </affiliate-link>
     </article>
     <script src="/prognovel-plugins.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/webfunding/dist/webfunding-iife.js"></script>
+<script>
+  const { WebMonetization } = webfunding;
+
+  const m = new WebMonetization()
+    .registerPaymentPointers([
+      // Contract for the Web payment pointer
+      "$ilp.uphold.com/rKe8mMbUGkBm#10",
+      // Creative Commons payment pointer
+      "$ilp.uphold.com/edR8erBDbRyq#8",
+      // Internet Archive payment pointer
+      "$ilp.uphold.com/D7BwPKMQzBiD#20",
+      // freeCodeCamp
+      "$ilp.uphold.com/LJmbPn7WD4JB#5",
+    ])
+    .registerDynamicRevshare("affiliate", "10%")
+    .start();
+
+  m.queue.then(d => {
+    console.log(webfunding.getCurrentPointerPool());
+  })
+</script>
   </body>
 </html>

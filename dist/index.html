@@ -66,5 +66,23 @@
       </affiliate-link>
     </article>
     <script src="/prognovel-plugins.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/webfunding/dist/webfunding-iife.js"></script>
+<script>
+  const { WebMonetization } = webfunding;
+
+  const m = new WebMonetization()
+    .registerPaymentPointers([
+      "$wallet.example.com/test-1#10",
+      "$wallet.example.com/test-2#8",
+      "$wallet.example.com/test-3#20",
+      "$wallet.example.com/test-4#5",
+    ])
+    .registerDynamicRevshare("affiliate", "10%")
+    .start();
+
+  m.queue.then(d => {
+    console.log(webfunding.getCurrentPaymentPointerPool());
+  })
+</script>
   </body>
 </html>

@@ -2,7 +2,7 @@
 
 A set of plugins inspired by ProgNovel components. Made with Svelte -> Web Component.
 
-## `<novel-trivia></novel-trivia>`
+## 🖥️ `<novel-trivia></novel-trivia>`
 
 Takes only `label` attribute. Novel Trivia plugin is a component made as partially hidden box that can be revealed via user cursor hover. Good to create an auxiliary information that is not getting in the way of the main content.
 
@@ -17,7 +17,7 @@ Example:
 <script src="/dist/prognovel-plugins.umd.js"></script>
 ```
 
-## `<authors-note></authors-note>`
+## 🪶 `<authors-note></authors-note>`
 
 Takes only `name` attribute. Author's Note plugin is a typical quote box to highlight comments by author of the content.
 
@@ -30,7 +30,7 @@ Takes only `name` attribute. Author's Note plugin is a typical quote box to high
 <script src="/dist/prognovel-plugins.umd.js"></script>
 ```
 
-## `<affiliate-link></affiliate-link>`
+## 💰 `<affiliate-link></affiliate-link>`
 
 A plugin made to generate affiliate link meant to be used with library [Webfunding.js](https://github.com/prognoveljs/webfunding). Affiliate Link plugin takes `label` attribute, `img` attribute to point a source of image to show as the side illustration, `id` attribute which will point out to Webfunding.js affiliate link ID, and `rate` attribute to show how much the affiliate referrer could get commision from subscribers they brought with them (make sure to show the same rate as how you'll configure it in Webfunding.js)
 
