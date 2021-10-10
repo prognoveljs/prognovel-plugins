@@ -4,8 +4,8 @@
   import { generateAffiliateLink } from "./utils/affiliate-link";
 
   export let label: string = "";
-  export let id: string = "affiliate";
-  export let img: string = "";
+  // export let id: string = "affiliate";
+  export let image: string = "";
   export let rate: string = "10";
   let input: HTMLInputElement;
   let input_label = "Generate your affiliate link";
@@ -13,7 +13,7 @@
   let generatedLink = "";
 
   function createAffiliateLink() {
-    generatedLink = generateAffiliateLink(input.value, id);
+    generatedLink = generateAffiliateLink(input.value);
     showModal = true;
   }
 
@@ -103,7 +103,7 @@
 </script>
 
 <article part="body" class="pg--affiliate-link">
-  <img class="pg--image" src={img} width="100%" height="auto" alt="Instant affiliate link." />
+  <img class="pg--image" src={image} width="100%" height="auto" alt="Instant affiliate link." />
   <section class="pg--content">
     <h3>Instant affiliate link</h3>
     <p>

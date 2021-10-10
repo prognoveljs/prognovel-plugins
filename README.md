@@ -32,7 +32,7 @@ Takes only `name` attribute. Author's Note plugin is a typical quote box to high
 
 ## 💰 `<affiliate-link></affiliate-link>`
 
-A plugin made to generate affiliate link meant to be used with library [Webfunding.js](https://github.com/prognoveljs/webfunding). Affiliate Link plugin takes `label` attribute, `img` attribute to point a source of image to show as the side illustration, `id` attribute which will point out to Webfunding.js affiliate link ID, and `rate` attribute to show how much the affiliate referrer could get commision from subscribers they brought with them (make sure to show the same rate as how you'll configure it in Webfunding.js)
+A plugin made to generate affiliate link meant to be used with library [Webfunding.js](https://github.com/prognoveljs/webfunding). Affiliate Link plugin takes `label` attribute, `img` attribute to point a source of image to show as the side illustration, and `rate` attribute to show how much the affiliate referrer could get commision from subscribers they brought with them (make sure to show the same rate as how you'll configure it in Webfunding.js)
 
 Currently, you can't add content to `<affiliate-link></affiliate-link>` slot.
 
@@ -41,12 +41,7 @@ Currently, you can't add content to `<affiliate-link></affiliate-link>` slot.
 Example:
 
 ```html
-<affiliate-link
-  label="ProgNovel"
-  rate="10"
-  img="/img/influencer.svg"
-  id="affiliate"
-></affiliate-link>
+<affiliate-link label="ProgNovel" rate="10" image="/img/influencer.svg"></affiliate-link>
 <script src="/dist/prognovel-plugins.umd.js"></script>
 
 <!-- Install Webfunding.js too -->

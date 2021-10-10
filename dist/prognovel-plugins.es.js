@@ -766,11 +766,10 @@ class AuthorsNote extends SvelteElement {
   }
 }
 customElements.define("authors-note", AuthorsNote);
-function generateAffiliateLink(address, id) {
+function generateAffiliateLink(address) {
   const thisPage = new URL(window.location.href);
   thisPage.search = "";
   thisPage.searchParams.set("affiliate", encodeURI(address));
-  thisPage.searchParams.set("affiliate-id", encodeURI(id));
   return thisPage.href;
 }
 let bodyStyle = {
@@ -850,8 +849,8 @@ function scale(node, { delay = 0, duration = 400, easing = cubicOut, start = 0, 
 }
 function get_each_context(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[23] = list[i];
-  child_ctx[25] = i;
+  child_ctx[22] = list[i];
+  child_ctx[24] = i;
   return child_ctx;
 }
 function create_if_block(ctx) {
@@ -958,7 +957,7 @@ function create_if_block(ctx) {
       append(article, t1);
       append(article, div2);
       append(div2, input_1);
-      ctx[19](input_1);
+      ctx[18](input_1);
       append(div2, t2);
       append(div2, span);
       append(article, t4);
@@ -977,7 +976,7 @@ function create_if_block(ctx) {
       current = true;
       if (!mounted) {
         dispose = [
-          listen(div0, "click", ctx[18]),
+          listen(div0, "click", ctx[17]),
           listen(span, "click", ctx[10])
         ];
         mounted = true;
@@ -1094,7 +1093,7 @@ function create_if_block(ctx) {
       if (detaching)
         detach(article);
       if_block0.d();
-      ctx[19](null);
+      ctx[18](null);
       destroy_each(each_blocks, detaching);
       if (~current_block_type_index) {
         if_blocks[current_block_type_index].d();
@@ -1141,12 +1140,12 @@ function create_each_block(ctx) {
   let mounted;
   let dispose;
   function click_handler_1() {
-    return ctx[20](ctx[25]);
+    return ctx[19](ctx[24]);
   }
   return {
     c() {
       span = element("span");
-      toggle_class(span, "selected", ctx[3] === ctx[25]);
+      toggle_class(span, "selected", ctx[3] === ctx[24]);
     },
     m(target, anchor) {
       insert(target, span, anchor);
@@ -1158,7 +1157,7 @@ function create_each_block(ctx) {
     p(new_ctx, dirty) {
       ctx = new_ctx;
       if (dirty & 8) {
-        toggle_class(span, "selected", ctx[3] === ctx[25]);
+        toggle_class(span, "selected", ctx[3] === ctx[24]);
       }
     },
     d(detaching) {
@@ -1408,8 +1407,8 @@ function create_if_block_1(ctx) {
 }
 function create_fragment(ctx) {
   let article;
-  let img_1;
-  let img_1_src_value;
+  let img;
+  let img_src_value;
   let t0;
   let section;
   let h3;
@@ -1434,7 +1433,7 @@ function create_fragment(ctx) {
   return {
     c() {
       article = element("article");
-      img_1 = element("img");
+      img = element("img");
       t0 = space();
       section = element("section");
       h3 = element("h3");
@@ -1458,12 +1457,12 @@ function create_fragment(ctx) {
         if_block.c();
       if_block_anchor = empty();
       this.c = noop;
-      attr(img_1, "class", "pg--image");
-      if (!src_url_equal(img_1.src, img_1_src_value = ctx[1]))
-        attr(img_1, "src", img_1_src_value);
-      attr(img_1, "width", "100%");
-      attr(img_1, "height", "auto");
-      attr(img_1, "alt", "Instant affiliate link.");
+      attr(img, "class", "pg--image");
+      if (!src_url_equal(img.src, img_src_value = ctx[1]))
+        attr(img, "src", img_src_value);
+      attr(img, "width", "100%");
+      attr(img, "height", "auto");
+      attr(img, "alt", "Instant affiliate link.");
       attr(input_1, "id", "generate-link-input");
       attr(input_1, "autocomplete", "off");
       attr(input_1, "type", "text");
@@ -1475,7 +1474,7 @@ function create_fragment(ctx) {
     },
     m(target, anchor) {
       insert(target, article, anchor);
-      append(article, img_1);
+      append(article, img);
       append(article, t0);
       append(article, section);
       append(section, h3);
@@ -1489,7 +1488,7 @@ function create_fragment(ctx) {
       append(section, t7);
       append(section, div);
       append(div, input_1);
-      ctx[17](input_1);
+      ctx[16](input_1);
       append(div, t8);
       append(div, button);
       insert(target, t10, anchor);
@@ -1506,8 +1505,8 @@ function create_fragment(ctx) {
       }
     },
     p(ctx2, [dirty]) {
-      if (!current || dirty & 2 && !src_url_equal(img_1.src, img_1_src_value = ctx2[1])) {
-        attr(img_1, "src", img_1_src_value);
+      if (!current || dirty & 2 && !src_url_equal(img.src, img_src_value = ctx2[1])) {
+        attr(img, "src", img_src_value);
       }
       if (!current || dirty & 1)
         set_data(t4, ctx2[0]);
@@ -1544,7 +1543,7 @@ function create_fragment(ctx) {
     d(detaching) {
       if (detaching)
         detach(article);
-      ctx[17](null);
+      ctx[16](null);
       if (detaching)
         detach(t10);
       if (if_block)
@@ -1565,13 +1564,12 @@ let borderTop = false;
 let style = "";
 function instance($$self, $$props, $$invalidate) {
   let { label = "" } = $$props;
-  let { id = "affiliate" } = $$props;
-  let { img = "" } = $$props;
+  let { image = "" } = $$props;
   let { rate = "10" } = $$props;
   let input;
   let generatedLink = "";
   function createAffiliateLink() {
-    $$invalidate(6, generatedLink = generateAffiliateLink(input.value, id));
+    $$invalidate(6, generatedLink = generateAffiliateLink(input.value));
     $$invalidate(4, showModal = true);
   }
   let copied = false;
@@ -1636,10 +1634,8 @@ function instance($$self, $$props, $$invalidate) {
   $$self.$$set = ($$props2) => {
     if ("label" in $$props2)
       $$invalidate(0, label = $$props2.label);
-    if ("id" in $$props2)
-      $$invalidate(16, id = $$props2.id);
-    if ("img" in $$props2)
-      $$invalidate(1, img = $$props2.img);
+    if ("image" in $$props2)
+      $$invalidate(1, image = $$props2.image);
     if ("rate" in $$props2)
       $$invalidate(2, rate = $$props2.rate);
   };
@@ -1664,7 +1660,7 @@ function instance($$self, $$props, $$invalidate) {
   };
   return [
     label,
-    img,
+    image,
     rate,
     selectedTips,
     showModal,
@@ -1679,7 +1675,6 @@ function instance($$self, $$props, $$invalidate) {
     tipsSelected,
     handlePressKey,
     close,
-    id,
     input_1_binding,
     click_handler,
     input_1_binding_1,
@@ -1694,7 +1689,7 @@ class AffiliateLink extends SvelteElement {
       target: this.shadowRoot,
       props: attribute_to_object(this.attributes),
       customElement: true
-    }, instance, create_fragment, safe_not_equal, { label: 0, id: 16, img: 1, rate: 2 }, null);
+    }, instance, create_fragment, safe_not_equal, { label: 0, image: 1, rate: 2 }, null);
     if (options) {
       if (options.target) {
         insert(options.target, this, options.anchor);
@@ -1706,7 +1701,7 @@ class AffiliateLink extends SvelteElement {
     }
   }
   static get observedAttributes() {
-    return ["label", "id", "img", "rate"];
+    return ["label", "image", "rate"];
   }
   get label() {
     return this.$$.ctx[0];
@@ -1715,18 +1710,11 @@ class AffiliateLink extends SvelteElement {
     this.$$set({ label });
     flush();
   }
-  get id() {
-    return this.$$.ctx[16];
-  }
-  set id(id) {
-    this.$$set({ id });
-    flush();
-  }
-  get img() {
+  get image() {
     return this.$$.ctx[1];
   }
-  set img(img) {
-    this.$$set({ img });
+  set image(image) {
+    this.$$set({ image });
     flush();
   }
   get rate() {
