@@ -2,6 +2,8 @@
 
 A set of plugins inspired by ProgNovel components. Made with Svelte -> Web Component.
 
+[**DEMO**](https://prognovel-plugins.netlify.app/)
+
 ## 🖥️ `<novel-trivia></novel-trivia>`
 
 Takes only `label` attribute. Novel Trivia plugin is a component made as partially hidden box that can be revealed via user cursor hover. Good to create an auxiliary information that is not getting in the way of the main content.
