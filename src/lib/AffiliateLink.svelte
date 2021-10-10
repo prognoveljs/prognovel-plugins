@@ -6,6 +6,7 @@
   export let label: string = "";
   export let id: string = "affiliate";
   export let img: string = "";
+  export let rate: string = "10";
   let input: HTMLInputElement;
   let input_label = "Generate your affiliate link";
 
@@ -18,7 +19,6 @@
 
   import { tick } from "svelte";
 
-  let rate: string = "10%";
   let copied: boolean = false;
 
   let linkElement;
@@ -178,11 +178,11 @@
             in:fly={transition.In()}
             out:fly={transition.Out()}
           >
-            You will receive {rate} of revenue of Web Monetization subscribers clicking your affiliate
-            link. Please note that you are not being paid by how much clicks you get, but instead the
-            time spent by subscribers reading the novel you referred. It is recommended to promote good
-            novels that you're confident people will follow through, and avoid annoying people with spam
-            to maintain trust with fellow readers.
+            You will receive {rate}% of revenue of Web Monetization subscribers clicking your
+            affiliate link. Please note that you are not being paid by how much clicks you get, but
+            instead the time spent by subscribers reading the novel you referred. It is recommended
+            to promote good novels that you're confident people will follow through, and avoid
+            annoying people with spam to maintain trust with fellow readers.
           </div>
         {:else if selectedTips === 1}
           <div
