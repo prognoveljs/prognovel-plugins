@@ -103,7 +103,13 @@
 </script>
 
 <article part="body" class="pg--affiliate-link">
-  <img class="pg--image" src={image} width="100%" height="auto" alt="Instant affiliate link." />
+  <img
+    class="pg--image"
+    src={`${image}`}
+    width="100%"
+    height="auto"
+    alt="Instant affiliate link."
+  />
   <section class="pg--content">
     <h3>Instant affiliate link</h3>
     <p>

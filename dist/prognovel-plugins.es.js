@@ -1462,7 +1462,7 @@ function create_fragment(ctx) {
       if_block_anchor = empty();
       this.c = noop;
       attr(img, "class", "pg--image");
-      if (!src_url_equal(img.src, img_src_value = ctx[1]))
+      if (!src_url_equal(img.src, img_src_value = `${ctx[1]}`))
         attr(img, "src", img_src_value);
       attr(img, "width", "100%");
       attr(img, "height", "auto");
@@ -1511,7 +1511,7 @@ function create_fragment(ctx) {
       }
     },
     p(ctx2, [dirty]) {
-      if (!current || dirty & 2 && !src_url_equal(img.src, img_src_value = ctx2[1])) {
+      if (!current || dirty & 2 && !src_url_equal(img.src, img_src_value = `${ctx2[1]}`)) {
         attr(img, "src", img_src_value);
       }
       if (!current || dirty & 1)
