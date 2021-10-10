@@ -109,7 +109,7 @@
     <p>
       Promote
       <strong>{label}</strong>
-      and enjoy ~10% of Coil subscription revenue from paying visitors you bring.
+      and enjoy ~{rate}% of Coil subscription revenue from paying visitors you bring.
       <em>No sign-up or paperwork required.</em>
     </p>
     <div class="referrer-generator">

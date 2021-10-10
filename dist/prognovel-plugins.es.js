@@ -1418,13 +1418,15 @@ function create_fragment(ctx) {
   let strong;
   let t4;
   let t5;
-  let em;
+  let t6;
   let t7;
+  let em;
+  let t9;
   let div;
   let input_1;
-  let t8;
-  let button;
   let t10;
+  let button;
+  let t12;
   let if_block_anchor;
   let current;
   let mounted;
@@ -1443,16 +1445,18 @@ function create_fragment(ctx) {
       t3 = text("Promote\n      ");
       strong = element("strong");
       t4 = text(ctx[0]);
-      t5 = text("\n      and enjoy ~10% of Coil subscription revenue from paying visitors you bring.\n      ");
+      t5 = text("\n      and enjoy ~");
+      t6 = text(ctx[2]);
+      t7 = text("% of Coil subscription revenue from paying visitors you bring.\n      ");
       em = element("em");
       em.textContent = "No sign-up or paperwork required.";
-      t7 = space();
+      t9 = space();
       div = element("div");
       input_1 = element("input");
-      t8 = space();
+      t10 = space();
       button = element("button");
       button.textContent = `${input_label}`;
-      t10 = space();
+      t12 = space();
       if (if_block)
         if_block.c();
       if_block_anchor = empty();
@@ -1484,14 +1488,16 @@ function create_fragment(ctx) {
       append(p, strong);
       append(strong, t4);
       append(p, t5);
+      append(p, t6);
+      append(p, t7);
       append(p, em);
-      append(section, t7);
+      append(section, t9);
       append(section, div);
       append(div, input_1);
       ctx[16](input_1);
-      append(div, t8);
+      append(div, t10);
       append(div, button);
-      insert(target, t10, anchor);
+      insert(target, t12, anchor);
       if (if_block)
         if_block.m(target, anchor);
       insert(target, if_block_anchor, anchor);
@@ -1510,6 +1516,8 @@ function create_fragment(ctx) {
       }
       if (!current || dirty & 1)
         set_data(t4, ctx2[0]);
+      if (!current || dirty & 4)
+        set_data(t6, ctx2[2]);
       if (ctx2[4]) {
         if (if_block) {
           if_block.p(ctx2, dirty);
@@ -1545,7 +1553,7 @@ function create_fragment(ctx) {
         detach(article);
       ctx[16](null);
       if (detaching)
-        detach(t10);
+        detach(t12);
       if (if_block)
         if_block.d(detaching);
       if (detaching)
